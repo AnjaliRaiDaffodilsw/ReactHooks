@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
+// useState is a special function which returns an array where first argument is a variable and second argument is a function
+
 import './App.css';
 
 function App() {
+//we can update the first value of useState 
+  // var name = useState('Anjali Rai')[0];
+  // console.log(name);
+  const [state,toggleState] = useState(true);
+
+ 
+  const changeName = () => {
+    // using useState hooks
+    toggleState("Vidhya Rai");
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+       <h1> {state ? "What is your Name ?" : "Anjali Rai"}</h1>
+     
+      <button className = "btn"
+      onClick = { () => toggleState(!state)}
+      >Click Me Plz</button>
     </div>
   );
 }
